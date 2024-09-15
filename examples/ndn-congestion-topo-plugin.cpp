@@ -111,6 +111,16 @@ main(int argc, char* argv[])
   Simulator::Run();
   Simulator::Destroy();
 
+    // on the first consumer node install a Consumer application
+  // that will express interests in /dst1 namespace
+  consumerHelper.SetPrefix("/dst1");
+  consumerHelper.Install(consumer1);
+
+  // on the second consumer node install a Consumer application
+  // that will express interests in /dst2 namespace
+  consumerHelper.SetPrefix("/dst2");
+  consumerHelper.Install(consumer2);
+  
   return 0;
 }
 
